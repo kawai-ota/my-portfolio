@@ -6,7 +6,7 @@ interface LayoutProps {
   large?: boolean;
 }
 
-export default function Container({ children }: LayoutProps , large =false) {
+export default function Container({ children, large = false }: LayoutProps) {
   return (
     <div className={large ? styles.large : styles.default}>{children}</div>
   );
