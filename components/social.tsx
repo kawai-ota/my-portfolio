@@ -1,18 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTwitter,
-  faGithub,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faQ } from "@fortawesome/free-solid-svg-icons";
 import styles from "../styles/social.module.css";
 
 const Social = () => {
   return (
     <ul className={styles.list}>
       <li>
-        <a href="https://twitter.com/">
-          <FontAwesomeIcon icon={faTwitter} />
-          <span className="sr-only">Twitter</span>
+        <a href="https://qiita.com/outahehe">
+          <FontAwesomeIcon icon={faQ} style={{ color: "#55c500" }} />
+          <span className="sr-only">Qiita</span>
         </a>
       </li>
       <li>
@@ -23,7 +20,7 @@ const Social = () => {
       </li>
       <li>
         <a href="https://www.instagram.com/otaaaaa0929/">
-          <FontAwesomeIcon icon={faInstagram} />
+          <FontAwesomeIcon icon={faInstagram} style={{ color: "#CF2E92" }} />
           <span className="sr-only">Instagram</span>
         </a>
       </li>
