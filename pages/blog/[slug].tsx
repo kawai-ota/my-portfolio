@@ -1,3 +1,5 @@
+import Meta from "../../components/meta";
+import { extractText } from "../../lib/extra-text";
 import { getPostBySlug, getAllSlugs } from "../../lib/api";
 import Container from "../../components/container";
 import PostHeader from "../../components/post-header";
@@ -13,11 +15,12 @@ import Contact from "../../components/contact";
 import { GetStaticProps } from "next";
 import { prevNextPost } from "../../lib/prev-next-post";
 import Pagination from "../../components/pagination";
-
+import { getPlaiceholder } from "plaiceholder";
 interface Eyecatch {
   url: string;
   width: number;
   height: number;
+  blurDataURL: string;
 }
 
 interface BlogProps {
@@ -25,6 +28,7 @@ interface BlogProps {
   publish: string;
   content: string;
   eyecatch: Eyecatch;
+  description: string;
   prevPost: { title: string; slug: string };
   nextPost: { title: string; slug: string };
 }
@@ -34,11 +38,13 @@ export default function Schedule({
   publish,
   content,
   eyecatch,
+  description,
   prevPost,
   nextPost,
 }: BlogProps) {
   return (
     <Container>
+      <Meta pageTitle={title} pageDesc={description} />
       <article>
         <PostHeader title={title} publish={publish} />
         <figure>
@@ -107,6 +113,8 @@ export const getStaticProps: GetStaticProps<BlogProps> = async ({ params }) => {
     currentSlug: slug as string,
   });
 
+  const description = extractText(post.content);
+
   return {
     props: {
       title: post.title,
@@ -116,6 +124,7 @@ export const getStaticProps: GetStaticProps<BlogProps> = async ({ params }) => {
       categories: post.categories,
       prevPost: prevPost || { title: "", slug: "" },
       nextPost: nextPost || { title: "", slug: "" },
+      description: description,
     },
   };
 };

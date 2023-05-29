@@ -1,3 +1,4 @@
+import Meta from "../components/meta";
 import Container from "../components/container";
 import Hero from "../components/hero";
 import Image from "next/image";
@@ -8,6 +9,7 @@ import styles from "../styles/works.module.css";
 export default function Works() {
   return (
     <Container>
+      <Meta pageTitle="Works" pageDesc = " 作品一覧"/>
       <Hero title="Works" subtitle="my works" />
       <div className={styles.worksContainer}>
         <a href="https://cat-app-gamma.vercel.app/">
@@ -79,7 +81,7 @@ export default function Works() {
           <br />
           バックエンド:Rails
           <br />
-          を予定しています。また、入念にテストもしていこうと考えています。
+          を使用します。また、入念にテストもしていこうと考えています。
         </p>
       </div>
     </Container>

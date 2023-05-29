@@ -8,7 +8,7 @@ export const client = createClient({
   apiKey: process.env.API_KEY as APIKey,
 });
 
-export async function getPostBySlug(slug: any) {
+export async function getPostBySlug(slug: string | string[]) {
   try {
     const post = await client.get({
       endpoint: "blogs",

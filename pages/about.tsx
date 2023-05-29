@@ -1,3 +1,4 @@
+import Meta from "../components/meta";
 import Hero from "../components/hero";
 import Container from "../components/container";
 import PostBody from "../components/post-body";
@@ -14,6 +15,7 @@ export default function About() {
   return (
     <>
       <Container>
+        <Meta pageTitle="About" pageDesc = "自己紹介"/>
         <Hero title="About" subtitle="Who's Ota Kawai" />
 
         <figure>
