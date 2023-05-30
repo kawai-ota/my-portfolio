@@ -1,0 +1,17 @@
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--space-lg) 0;
+  gap: 1em;
+}
+
+.next {
+  margin-left: auto;
+}
+
+.iconText {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}

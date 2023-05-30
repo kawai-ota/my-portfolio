@@ -9,7 +9,7 @@ import styles from "../styles/works.module.css";
 export default function Works() {
   return (
     <Container>
-      <Meta pageTitle="Works" pageDesc = " 作品一覧"/>
+      <Meta pageTitle="Works" pageDesc=" 作品一覧" />
       <Hero title="Works" subtitle="my works" />
       <div className={styles.worksContainer}>
         <a href="https://cat-app-gamma.vercel.app/">
@@ -63,10 +63,50 @@ export default function Works() {
           style={{
             maxWidth: "50%",
             height: "auto",
-            marginTop: 30,
           }}
         >
-          ←このアプリは9月の完成をめどに作成しています。What&apos;s
+          ←このアプリは8月の完成をめどに作成しています。Your Life
+          というアプリ名にしようと考えています。
+          <br />
+          <br />
+          近年、南海トラフ大地震が必ず起こるという予測がされています。しかし、危険意識が低く、非常食を用意していなかったり、ハザードマップの存在、海抜などに関して理解していない人もいるのではないかと考えました。
+          <br />
+          そこで、非常食の賞味期限などを管理したり、地域の海抜、ハザードマップを確認できるようなアプリを作成しようと考えました。
+          <br />
+          このアプリで少しでも災害意識に目を向けられ、東日本大震災のような悲劇を繰り返さないことに繋がってほしいと思います。
+          <br />
+          <br />
+          使用技術に関しては、
+          <br />
+          フロントエンド:Next.js(TypeScript)
+          <br />
+          バックエンド:Rails
+          <br />
+          を使用します。また、入念にテストもしていこうと考えています。
+        </p>
+      </div>
+      <div className={styles.worksContainer}>
+        <div
+          style={{
+            maxWidth: "1000px",
+            height: "auto",
+          }}
+        >
+          <Image
+            src={eyecatch2}
+            alt=""
+            layout="responsive"
+            priority
+            placeholder="blur"
+          />
+        </div>
+        <p
+          style={{
+            maxWidth: "50%",
+            height: "auto",
+          }}
+        >
+          ←このアプリは10月の完成をめどに作成しています。What&apos;s
           Today?というアプリ名にしようと考えています。
           <br />
           <br />

@@ -15,7 +15,7 @@ import Contact from "../../components/contact";
 import { GetStaticProps } from "next";
 import { prevNextPost } from "../../lib/prev-next-post";
 import Pagination from "../../components/pagination";
-import { getPlaiceholder } from "plaiceholder";
+
 interface Eyecatch {
   url: string;
   width: number;
@@ -33,7 +33,7 @@ interface BlogProps {
   nextPost: { title: string; slug: string };
 }
 
-export default function Schedule({
+export default function Post({
   title,
   publish,
   content,
@@ -67,13 +67,13 @@ export default function Schedule({
             <Contact />
           </TwoColumnSidebar>
         </TwoColumn>
-        <Pagination
-          prevText={prevPost.title}
-          prevUrl={`/blog/${prevPost.slug}`}
-          nextText={nextPost.title}
-          nextUrl={`/blog/${nextPost.slug}`}
-        />
       </article>
+      <Pagination
+        prevText={nextPost.title}
+        prevUrl={`/blog/${nextPost.slug}`}
+        nextText={prevPost.title}
+        nextUrl={`/blog/${prevPost.slug}`}
+      />
     </Container>
   );
 }
@@ -91,7 +91,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<BlogProps> = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug;
 
   if (!slug) {
@@ -101,6 +101,7 @@ export const getStaticProps: GetStaticProps<BlogProps> = async ({ params }) => {
   }
 
   const post = await getPostBySlug(slug);
+  console.log(post);
 
   if (!post) {
     return {
@@ -108,10 +109,7 @@ export const getStaticProps: GetStaticProps<BlogProps> = async ({ params }) => {
     };
   }
   const allSlugs = await getAllSlugs();
-  const [prevPost, nextPost] = prevNextPost({
-    allSlugs: allSlugs,
-    currentSlug: slug as string,
-  });
+  const [prevPost, nextPost] = prevNextPost(allSlugs, slug as string);
 
   const description = extractText(post.content);
 

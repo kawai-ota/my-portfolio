@@ -18,3 +18,22 @@
     color: var(--accent);
   }
 }
+
+@media (max-width: 650px) {
+  .list {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .list li {
+    margin: 0 0.5em;
+  }
+
+  .list a {
+    display: block;
+    padding: 0.5em 1em;
+    text-align: center;
+    transition: color 0.3s ease;
+  }
+}
